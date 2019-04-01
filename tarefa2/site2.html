@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Instituto de Computação</title>
+	</head>
+
+
+	<body>
+		<h1>Formulário de Contato</h1>
+		<p> Por Favor, preencha o formulário abaixo e clique no botão Enviar Mensagem. Agradecemos por seu contato.</p>
+		
+		<form method="Post" action="form.php"> 
+			<fieldset>
+				<legend> Dados Básicos </legend>
+				Nome <input type="text" name="nome" id="nome"><br>
+				E-mail <input type="email" name="email" id="email" placeholder="seunome@dominio.com"><br>
+				Website <input type="text" name="site" id="site">
+			</fieldset><br>
+			
+			<fieldset>
+				<legend>Seu Curso no Instituto de Computação</legend>
+
+				<input type="radio" name="curso" value="cc">
+				Ciência da Computação <br>
+
+				<input type="radio" name="curso" value="si">
+				Sistemas de Informação<br>
+
+				<input type="radio" name="curso" value="ec">
+				Engenharia da Computação<br>
+			</fieldset><br>
+			
+			<fieldset>
+				<legend> Assinale as linguagens de programação já usadas por você </legend>
+				<label for="java"> Java </label>
+				<input type="checkbox" name="LP" id=java value="java">
+
+				<label for="c"> C </label>
+				<input type="checkbox" name="LP" id=c value="c">
+
+				<label for="cpp"> C++ </label>
+				<input type="checkbox" name="LP" id=cpp value="cpp">
+
+				<label for="pearl"> Pearl </label>
+				<input type="checkbox" name="LP" id=pearl value="pearl">
+
+				<label for="python"> Python </label>
+				<input type="checkbox" name="LP" id=python value="python">
+
+				<label for="js"> JavaScript </label>
+				<input type="checkbox" name="LP" id=js value="js">
+			</fieldset><br>
+			
+			<fieldset>
+				<legend>Dados Complementares</legend>
+				Cor Favorita <input type="color" name="cor" id="cor"><br>
+				Data de Nascimento <input type="date" name="dataNasc"><br>
+				Ano de Entrada em seu curso <input type="number" name="dataIngr" max="2019">
+				Nota para este site <input type="range" name="notaSite">
+			</fieldset><br>
+			
+			<fieldset>
+				<legend>Área de Atuação</legend>
+				<select name="area" id="area">
+					<option value="1"> Banco de Dados </option>
+					<option value="2"> Educação a Distância </option>
+					<option value="3"> Engenharia de Software </option>
+					<option value="4"> Otimização </option>
+					<option value="5"> Programação Web </option>
+					<option value="6"> Recuperação de Informação </option>
+					<option value="7"> Redes de Computadores </option>
+				</select>
+			</fieldset><br>
+			
+			<fieldset>
+				<legend> Submeta seu curriculum vitae </legend>
+				<input type="file" name="curriculum">
+			</fieldset><br>
+			
+			<fieldset>
+				<legend> Digite sua Mensagem </legend>
+				<input type="textarea" name="mensagem" rows="5" cols="50">
+				Este é o valor padrão! Digite sua mensagem :)
+			</fieldset><br>
+			
+			
+			<input type="reset" value="Resetar Dados" />
+			<input type="submit" name="enviar" value="Enviar Mensagem" />
+		</form>
+	</body>
+</html>
