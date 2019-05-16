@@ -22,12 +22,14 @@
             if(tam < 8){
                 vetor.unshift(dot)
             }else{
-                vetor.shift()
                 vetor.unshift(dot)
+                var deletar = vetor[8]
+                vetor[8].del
             }
             for(var i=0; i<tam; i++){
                 console.log(vetor[i])
                 document.body.appendChild(vetor[i])
+                document.body.removeChild(deletar)
             }
         });
     </script>
