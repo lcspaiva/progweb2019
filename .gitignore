@@ -1,4 +1,5 @@
 #ignorando arquivos irrelevantes
 *.pdf
 /slides
+/estudo
 gits.txt

@@ -1,0 +1,34 @@
+|<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instituto de Computação</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        Informe o Raio: <input type="text" id="raio" name="raio"> 
+        <button id="botaoOK1" onclick="main()">Ok</button> <br>
+
+        Área do Circulo: <input type="text" id = "area" name="AREA"><br>
+        Circunferência: <input type="text" id = "circunferencia" name="CIRCU"><br>
+ 
+        <script>
+            function calculaArea(r){
+                var raio = parseFloat(r)    
+                return (3.14 * raio * raio)
+            }
+            function calculaCircunferencia(r){
+                var raio = parseFloat(r)  
+                return 3.14*(raio + raio)
+            }
+
+            function main(){
+                var raio = document.getElementById("raio").value
+                var area = document.getElementById("area")
+                var circunferencia = document.getElementById("circunferencia")
+                area.value = calculaArea(raio)
+                circunferencia.value = calculaCircunferencia(raio)
+            }
+        </script>
+        
+    </body>
+</html>
