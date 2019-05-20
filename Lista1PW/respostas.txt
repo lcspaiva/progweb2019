@@ -1,0 +1,107 @@
+Questão 1
+O erro está na tag meta dentro do body. Essa tag deve vir dentro do <head> invés de vir dentro do <body>. 
+Para corrigi-lo basta colocá-lo no <head> do arquivo.
+
+Questão 2
+Essa opção existe não para detectar o tamanho da imagem, mas para o desenvolvedor ter a opção de selecionar o tamanho 
+que deseja exibir a imagem e para essa não sofra alterações em seu tamanho conforme o tamanho da janela varie.
+
+Questão 3
+Código
+
+Questão 4
+São caracteres que necessitam de uma codificação especial, tendo em vista que alguns não são exibidos senão dessa forma.
+Esses caracteres podem ser símbolos, números em hexa, caracteres gregos e afins. Devem ser usados quando se deseja
+exibi-los visualmente (na página)
+
+Questão 5
+O working directory é a area em que os arquivos estão sendo trabalhados e alterados, uma espécie de área de trabalho, conforme o usuário finalize suas alterações ele vai enviado-as ao index
+O index é a área em que os arquivos que foram modificados e devem ser versionados são colocados, como uma espécie de área de espera.
+O repository é a área em que os arquivos ficam armazenados no servidor, podendo esse ser local, ou seja, os arquivos já foram atualizados mediante as alterações feitas.
+o git add adiciona um arquivo que foi trabalhado para que ele seja enviado ao repositorio no próximo commit.
+O commit ele envia os arquivos presentes no index para o servidor, podendo ser um servidor local, efetivando as alterações, claro que essas podem ser revertidos.
+
+Questão 6
+estilos inline: a modificação quanto ao estilo vem dentro da escrita do código, dentro das linhas do html
+estilos embarcados: a alteração do estilo vem declarado dentro do html também, porém ele vem dentro do head delimitado pelas tags <style>
+estilos externos: A modificação vem em um arquivo próprio, contendo apenas declarações de estilo, esse arquivo é então importado pela página html
+EX: estilo inline <p style="font-size: 14px; color: blue> Texto personalizado, azulzinho lindinho </p>, perceba o estilo dentro do html
+
+Questão 7
+As unidades absolutas são unidades em que o tamanho do elemento referenciado não depende de nenhum outro elemento, apenas da unidade fornecida. Se codificarmos um elemento
+com o tamanho de 2cm em unidades absolutas, ele terá 2cm não importa o que aconteça.
+As unidades relativas por sua vez depende de outros elementos, como uma forma de tamanho condicionado, se um elemente tem 10cm o valor do elemento relativo terá um tamanho em função
+desse 1º.
+A unidade em é uma unidade relativa, e se refere ao tamanho da fonte do elemento.
+
+Questão 8
+padding: 5px 0px 15px 10px;
+
+Questão 9
+Código
+
+Questão 10
+um seletor por classe seria o mais indicado, uma vez que os elementos possuem tags diferentes, porém eles possuem a mesma classe (cl1).
+
+Questão 11
+Tipagem dinâmica é uma característica que não exige declarações explicitas de tipos de dados, pois são capazes de identificar que tipo utilizar para cada variável durante o programa, podendo alterá-lo durante a compilação ou a execução do programa.
+EX:
+	var i = 1
+	i = "banana"
+
+Questão 12
+Nesse trecho está sendo definido o comportamento de dois botões, Adicionar Estilos e Limpar estilo. O botão adicionar estilos adicionará
+novas cores à div icomp, enquanto a opção clean removerá os efeitos adicionados
+
+Questão 13
+Organização, o código html fica mais organizado, uma vez que não dificultamos a leitura ao misturar tudo em um mesmo arquivo.
+Portabilidade, o código js fica separado do html, dessa forma ele pode ser facilmente extraido, lido e modificado, sem a
+necessidade de se ler todo o html.
+
+Questão 14
+Código
+
+Questão 15
+O resultado é um erro: 
+console.log(a);
+            ^
+ReferenceError: a is not defined
+Isso se dá pois a variável a está limitada ao escopo da função em questão, e como a variável "a" não existe no escopo global
+não é possivel encontrar uma referência à variavel, então a mensagem de erro observada. Em resumo, a variável a só "existe"
+dentro da função.
+
+Questão 16
+O resultado observado foi: undefined e 2
+Hoisting é um comportamento do JS de mover declarações para o topo de um escopo significa que você é capaz de usar 
+uma função ou variável antes mesmo de tê-las declaradas. Isso é observavél na função, uma vez que a printamos antes de 
+termos declarado a função, logo, o resultado sofreu a ação de Hoisting, entretanto, não entendo pq o mesmo não ocorreu
+com a variavel a.  
+
+Questão 17
+Sei não
+
+Questão 18
+== compara apenas os valores das variáveis, enquanto === compara os valores e os tipos de valores
+EX:
+	a = 42
+	b = "42"
+	a == b -> True
+	a === b -> False
+
+Questão 19
+Clousures são função com um comportamento único, elas criam um espaço privado dentro delas. Esse espaço só pode ser 
+modificado mediante uma função específica (declarada dentro). Dessa forma existe a criação de varíaveis locais com 
+comportamento estipulado.
+A função tem o seguinte comportamento: ela será inicializada com um valor, esse valor será adicionado de 3
+criando uma valor base. Esse valor base será acrescido do parametro dado nas chamades seguintes, observando que o valor
+será sempre armazenado de forma privada, ou seja, apenas a função mais interior poderá modifica-lá.
+
+Questão 20
+Código
+
+Questão 21
+Funções construtoras são funções que têm a função/objetivo de criar novos objetos a partir de sua chamada, ou seja, ao
+chamar a função com os parametro adequados retorna um objeto.
+Código
+
+Questão 22

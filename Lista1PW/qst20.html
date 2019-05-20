@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Questão 20</title>
+    </head>
+    <body>
+        Informe o Raio: <input type="text" id="raio">
+        <button id="btn1">Calcular!</button><br>
+        Área: <input type="text" id="area"><br>
+        Volume: <input type="text" id="volume"><br>
+
+        <script>
+            document.getElementById("btn1").addEventListener("click", function(){
+                var raio = parseFloat(document.getElementById("raio").value)
+                var calc_area = 4 * 3.14 * raio * raio
+                var calc_volume = (4 * 3.14 * raio * raio * raio)/3
+
+                console.log(calc_area)
+                console.log(calc_volume)
+
+                var area = document.getElementById("area")
+                var volume = document.getElementById("volume")
+
+                area.value = (String(calc_area))
+                volume.value = (String(calc_volume))           
+            })
+        </script>
+    </body>
+</html>
