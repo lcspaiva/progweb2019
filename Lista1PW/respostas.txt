@@ -17,9 +17,9 @@ exibi-los visualmente (na página)
 Questão 5
 O working directory é a area em que os arquivos estão sendo trabalhados e alterados, uma espécie de área de trabalho, conforme o usuário finalize suas alterações ele vai enviado-as ao index
 O index é a área em que os arquivos que foram modificados e devem ser versionados são colocados, como uma espécie de área de espera.
-O repository é a área em que os arquivos ficam armazenados no servidor, podendo esse ser local, ou seja, os arquivos já foram atualizados mediante as alterações feitas.
+O repository é a área em que os arquivos ficam armazenados no servidor, podendo esse ser um servidor local, ou seja, os arquivos já foram atualizados mediante as alterações feitas.
 o git add adiciona um arquivo que foi trabalhado para que ele seja enviado ao repositorio no próximo commit.
-O commit ele envia os arquivos presentes no index para o servidor, podendo ser um servidor local, efetivando as alterações, claro que essas podem ser revertidos.
+O commit ele envia os arquivos presentes no index para o servidor, efetivando as alterações, claro que essas podem ser revertidas.
 
 Questão 6
 estilos inline: a modificação quanto ao estilo vem dentro da escrita do código, dentro das linhas do html
@@ -57,6 +57,9 @@ Questão 13
 Organização, o código html fica mais organizado, uma vez que não dificultamos a leitura ao misturar tudo em um mesmo arquivo.
 Portabilidade, o código js fica separado do html, dessa forma ele pode ser facilmente extraido, lido e modificado, sem a
 necessidade de se ler todo o html.
+Torna a navegação mais rápida, por causa do cacheamento do browser.
+Criar um look-and-feel uniforme para todo um Web site o que não é fácil de se manter no embarcado pois para cada 
+elemento terá que criar style diferentes e no externo varias paginas podem usar o mesmo arquivo.
 
 Questão 14
 Código
@@ -105,3 +108,22 @@ chamar a função com os parametro adequados retorna um objeto.
 Código
 
 Questão 22
+A programação baseada em protótipos é um estilo de programação orientada a objetos na qual a reutilização de comportamento
+(conhecida como herança) é executada por meio de um processo de reutilização de objetos existentes por meio de delegação
+que servem como protótipos, ou seja, para criar um novo objeto podemos delegar a sua criação por meio de um outro objeto
+já criado. Diferentemente de JavaScript, teríamos que invocar um construtor para realizar tal. 
+
+Ex:
+ var circle = {
+    radius: 5
+};
+
+//delegamos a criação do novo objeto
+var circle2 = Object.create(circle);
+circle2.radius = 10;
+
+Questão 23
+Código
+
+Questão 24
+Código
