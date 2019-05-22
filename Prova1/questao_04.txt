@@ -1,0 +1,15 @@
+Closures são um comportamento muito importante quando se aprende JS, uma vez que 
+basicamente todas as variáveis são globais, logo, as vezes é necessário uma
+espécie de encaspulamento. Os Closures oferecem justamente isso, ao encapsular uma
+variável e restringir o seu uso mediante uma função, ou seja, apenas aquela
+função tem o direito de manusear aquela variavel, isso dita o comportamento
+daquela variável. Sintaticamente um closure caracteristico é uma funçao dentro
+de uma função, com uma variavel dentro da primeira. Essa variavel tera seu comportamento
+controlado pela funçao mais interior.
+
+No código abaixo notamos a variavel baz dentro da funçao exterior, note
+que ele só é alterado na função de dentro e somente essa função terá o poder
+de manipulá-la. A função foo tem a função de dar um input inicial, a partir daí
+o y que é dado como parâmetro irá ser dado como entrada á função. Com as chamadas
+seguintes teremos a base acrescentando de um em um, um valor inicial dado na inicialização
+e o parâmetro a ser adicionado mediante chamada. 
