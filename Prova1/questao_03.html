@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>QST3</title>
+    </head>
+    <body>
+        Insira Texto <input type="text" id="txt">
+        <Script>
+            area = document.getElementById("txt").addEventListener("keypress", function(e){
+                //console.log(e)
+                //QWX
+                event.preventDefault()
+                x = document.getElementById("txt")
+                if(e.key == "q" || e.key == "Q" || e.key == "X" || e.key == "x" || e.key == "w" || e.key == "W"){
+                    x.value = x.value + "?" 
+                    //console.log("peguei")
+                }else{
+                    x.value = x.value + e.key
+                    //console.log("passei")
+                }      
+            });            
+        </Script> 
+    </body>
+</html>
