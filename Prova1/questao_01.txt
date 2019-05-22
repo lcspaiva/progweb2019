@@ -1,0 +1,6 @@
+Na linha 18 o <strong> é aberto, porém não é fechado. Para corrigir deve-se fechar a tag com </strong>
+Na linha 10 e 11 houve uma troca entre o seletor e o atributo a ser trocado, para se corrigir deve-se mover 
+    o #para para linha 10 e o background-color para a linha 11
+O comentário está codificado entre os parametros errados, o certo para comentario é --> <--
+Na linha 15 está faltando a tag <body> </body>, deve-se colocá-la iniciando na linha 15 e a fechando na linha
+    23
