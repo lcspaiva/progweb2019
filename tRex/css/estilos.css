@@ -45,62 +45,67 @@
 }
 
 .cactoSoloMini{
-    width: 17;
-    height: 35;
+    width: 17px;
+    height: 35px;
     background-image: url(sprites.png);
-    background-position: -228px 2px;
+    background-position: -228px -4px;
     position: absolute;
     z-index: 2;
     border: 2px solid black;
-    bottom: 5px;
+    bottom: 0px;
 }
 
 .cactoSoloGrande{
-    width: 25;
-    height: 48;
+    width: 25px;
+    height: 48px;
     background-image: url(sprites.png);
-    background-position: -332px 2px;
+    background-position: -332px -4px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;  
+    border: 2px solid black;
+    bottom: 0px;  
 }
 
 .cactoDuploGrande{
     width: 48px;
     height: 48px;
     background-image: url(sprites.png);
-    background-position: -332px 2px;
-    position: absolute;
-    z-index: 2;
-    border: 2px solid black; 
-}
-
-.cactoDuploMini{
-    width: 34;
-    height: 36;
-    background-image: url(sprites.png);
-    background-position: -228px 2px;
-    position: absolute;
-    z-index: 2;
-    border: 2px solid black;  
-}
-
-.cactoTriploMini{
-    width: 52;
-    height: 36;
-    background-image: url(sprites.png);
-    background-position: -228px 2px;
+    background-position: -332px -4px;
     position: absolute;
     z-index: 2;
     border: 2px solid black;
+    bottom: 0px;   
+}
+
+.cactoDuploMini{
+    width: 34px;
+    height: 36px;
+    background-image: url(sprites.png);
+    background-position: -228px -4px;
+    position: absolute;
+    z-index: 2;
+    border: 2px solid black;
+    bottom: 0px;    
+}
+
+.cactoTriploMini{
+    width: 52px;
+    height: 36px;
+    background-image: url(sprites.png);
+    background-position: -228px -4px;
+    position: absolute;
+    z-index: 2;
+    border: 2px solid black;
+    bottom: 0px;  
 }
 
 .cacto4{
-    width: 73;
-    height: 48;
+    width: 73px;
+    height: 48px;
     background-image: url(sprites.png);
-    background-position: -407px 2px;
+    background-position: -407px -4px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;  
+    border: 2px solid black;
+    bottom: 0px;  
 }

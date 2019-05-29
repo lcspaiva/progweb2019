@@ -1,28 +1,47 @@
 (function () {
 
     const FPS = 300;
-    const PROB_NUVEM = 2;
+    const PROB_NUVEM = 1;
     const PROB_PTRO = 1;
+    const PROB_CACTO = 1;
     var gameLoop;
     var deserto;
     var dino;
     var ptero1;
     var ptero2;
     var nuvens = [];
-    var cacto;
+    var cacto1;
+    var cacto2;
+    var cont = 0;
 
-    function init () {
+    if (cont == 0){
         deserto = new Deserto();
         dino = new Dino();
+        cont ++;
+    }
+    window.addEventListener("keydown", function(ev){    
+        if(ev.key == "ArrowUp" && cont <= 1){
+            init();
+        }
+        cont ++;
+    })
+
+    function init () {
+
 
         ptero1 = new Ptero();
         ptero1.element.style.right = "520px"
         ptero2 = new Ptero();
         ptero2.element.style.right = "520px"
         
-        cacto = new Cacto1();
+        cacto1 = new Cacto("cactoSoloMini");
+        cacto1.element.style.right = "500px"
+        cacto2 = new Cacto("cactoSoloMini");
+        cacto2.element.style.right = "500px"
         gameLoop = setInterval(run, 1000/FPS);
     }
+
+
 
     window.addEventListener("keydown", function (e) {
         if (e.key == "ArrowUp" && dino.status==0) dino.status = 1;
@@ -94,7 +113,7 @@
         this.element = document.createElement("div");
         this.element.className = "nuvem";
         this.element.style.right = "-30px"; //480px termina
-        this.element.style.top = Math.floor(Math.random()*80) + "px";
+        this.element.style.top = (25 + Math.floor(Math.random()*50)) + "px";
         deserto.element.appendChild(this.element);
     }
 
@@ -137,30 +156,32 @@
         }
     }
 
-    function Cacto1() { //17x35
+    function Cacto(tipo) { //17x35
         this.element = document.createElement("div");
-        this.element.className = "cactoSoloMini";
+        this.element.className = tipo;
         this.element.style.right = "-30px"; //480px termina
         //this.element.style.top = "10px";
         deserto.element.appendChild(this.element);
     }
 
-    Cacto1.prototype.mover = function () {
+    Cacto.prototype.mover = function () {
         this.element.style.right = (parseInt(this.element.style.right) + 1) + "px";
     }
 
     altura = ["80px", "40px", "10px", "80px", "40px", "10px", "80px", "40px", "10px", "80px"]
+    tipoCacto = ["cactoSoloMini", "cactoSoloGrande", "cactoDuploGrande", "cactoDuploMini", "cactoTriploMini", "cacto4",
+                "cactoSoloMini", "cactoSoloGrande", "cactoDuploGrande", "cactoDuploMini"]
 
     function run () {
         dino.correr();
         deserto.mover();
 
-        if (Math.floor(Math.random()*1000) <= PROB_NUVEM) { //cria nuvem
+        if (Math.floor(Math.random()*6500) <= PROB_NUVEM) { //cria nuvem
             nuvens.push(new Nuvem());
         }
 
         //teremos no máximo 2 ptros ao mesmo tempo na tela
-        if(Math.floor(Math.random()*1000) <= PROB_PTRO){
+        if(Math.floor(Math.random()*3000) <= PROB_PTRO){
             //console.log("qro criar ptro!")
             //se a posição do ptro for maior que 500 ele está apto a voltar ao deserto
             if (parseInt(ptero1.element.style.right) > 500){
@@ -174,16 +195,36 @@
                 }
             }*/
         }
+        if (Math.floor(Math.random()*10000) <= PROB_NUVEM) { //cria nuvem
+            nuvens.push(new Nuvem());
+        }
         nuvens.forEach(function (n) {
             n.mover(); //480 é o fim do grid visualmente, max=500px
         });
 
-        cacto.mover()
+        if(Math.floor(Math.random()*1000) <= PROB_CACTO){
+            var dist1 = parseInt(cacto1.element.style.right)
+            var dist2 = parseInt(cacto2.element.style.right)
+
+            if (dist1 < 75 || dist2 < 75){
+                ;
+            }
+            else{
+                if(parseInt(cacto1.element.style.right) > 500){
+                    cacto1 = new Cacto(tipoCacto[Math.floor(Math.random()*10)])
+                }
+                else if (parseInt(cacto2.element.style.right) > 500){
+                    cacto2 = new Cacto(tipoCacto[Math.floor(Math.random()*10)])
+                }
+            }
+        }
         ptero1.voar()
         //ptero2.voar()
+        cacto1.mover()
+        cacto2.mover()
         
         //Em caso de game over
         //clearInterval(gameLoop);
     }
-    init();
+    //init();
 })();
