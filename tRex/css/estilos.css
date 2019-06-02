@@ -52,7 +52,6 @@
     background-position-y: -3px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;
 }
 
 .nuvem {
@@ -62,7 +61,6 @@
     background-position: -86px 2px;
     position: absolute;
     z-index: 1;
-    border: 2px solid black;
 }
 
 .ptero {
@@ -72,7 +70,6 @@
     background-position: -134px 8px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;
 }
 
 .cactoSoloMini{
@@ -82,7 +79,6 @@
     background-position: -228px -4px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;
     bottom: 0px;
 }
 
@@ -93,7 +89,6 @@
     background-position: -332px -4px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;
     bottom: 0px;  
 }
 
@@ -104,7 +99,6 @@
     background-position: -332px -4px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;
     bottom: 0px;   
 }
 
@@ -115,7 +109,6 @@
     background-position: -228px -4px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;
     bottom: 0px;    
 }
 
@@ -126,7 +119,6 @@
     background-position: -228px -4px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;
     bottom: 0px;  
 }
 
@@ -137,6 +129,5 @@
     background-position: -407px -4px;
     position: absolute;
     z-index: 2;
-    border: 2px solid black;
     bottom: 0px;  
 }
