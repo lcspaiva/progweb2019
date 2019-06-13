@@ -1,3 +1,6 @@
+David: Todos os erros foram reportados corretamente
+Nota: 2.0
+
 Na linha 18 o <strong> é aberto, porém não é fechado. Para corrigir deve-se fechar a tag com </strong>
 Na linha 10 e 11 houve uma troca entre o seletor e o atributo a ser trocado, para se corrigir deve-se mover 
     o #para para linha 10 e o background-color para a linha 11

@@ -1,3 +1,6 @@
+David: Definição de closure e descrição do código corretos.
+Nota: 2.0
+
 Closures são um comportamento muito importante quando se aprende JS, uma vez que 
 basicamente todas as variáveis são globais, logo, as vezes é necessário uma
 espécie de encaspulamento. Os Closures oferecem justamente isso, ao encapsular uma

@@ -1,3 +1,6 @@
+David: Apenas o primeiro seletor está correto
+Nota: 0.7
+
 span
 span, cl1
 =*CSS
