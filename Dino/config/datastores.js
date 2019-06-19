@@ -48,8 +48,8 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-    adapter: 'sails-mysql',
-    url: 'mysql://trex:trex123@localhost:3306/Trex',
+    adapter: require('sails-mysql'),
+    url: 'mysql://trex:trex123@localhost:3306/trex',
   },
 
 

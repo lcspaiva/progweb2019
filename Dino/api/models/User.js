@@ -12,17 +12,15 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    userName: {
+    fullName: {
       type: 'string',
-      columnType: 'varchar',
       maxLength: 45,
       description: 'Nick do jogador',
       defaultsTo: "Guest"
     },
 
-    email:{
+    emailAddress:{
       type: 'string',
-      columnType: 'varchar',
       maxLength: 45
     }
 
@@ -37,6 +35,4 @@ module.exports = {
     // n/a
 
   },
-
-
 };
