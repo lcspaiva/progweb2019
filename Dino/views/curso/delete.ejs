@@ -1,0 +1,34 @@
+<div id="curso" class="container mt-4">
+    <div class="row">
+      <div class="col-sm">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cursos</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h1 style="color:red;">Exclusão de Curso </h1>
+            <hr>
+            <% if(typeof error !== 'undefined') { %>
+                <p><%= error %></p>
+            <% } else {%>
+            <h4 style="color:red;">Sigla</h4>
+            <%= curso.sigla %>
+            <hr>
+            <h4 style="color:red;">Nome</h4>
+            <%= curso.nome %>
+            <hr>
+            <h4 style="color:red;">Descrição</h4>
+            <%= curso.descricao %>
+            <% } %>
+            <hr>
+            <button type="button" class="btn btn-danger">Excluir</button>
+            <a class="btn btn-primary" href="/curso" role="button">Voltar</a>
+        </div>
+    </div>
+  </div>
+  

@@ -16,13 +16,21 @@ module.exports = {
       type: 'string',
       maxLength: 45,
       description: 'Nick do jogador',
-      defaultsTo: "Guest"
+      defaultsTo: "Guest",
     },
 
     emailAddress:{
       type: 'string',
-      maxLength: 45
-    }
+      maxLength: 45,
+      unique: true,
+    },
+
+    password: {
+      type: 'string',
+      required: true,
+      description: 'Securely hashed representation of the user\'s login password.',
+      protect: true,
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

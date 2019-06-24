@@ -77,6 +77,8 @@ and exposed as \`req.me\`.)`
     var userRecord = await User.findOne({
       emailAddress: inputs.emailAddress.toLowerCase(),
     });
+    
+    console.log(userRecord);
 
     // If there was no matching user, respond thru the "badCombo" exit.
     if(!userRecord) {

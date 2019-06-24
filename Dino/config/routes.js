@@ -34,6 +34,13 @@ module.exports.routes = {
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
+  'GET /curso':                   { action: 'curso/index' },
+  'GET /curso/read/:cursoId':     { action: 'curso/read' },
+  'GET /curso/create':            { action: 'curso/create' },
+  'POST /curso/create':           { action: 'curso/create' },
+  'GET /curso/update/:cursoId':   { action: 'curso/update' },
+  'POST /curso/update/:cursoId':  { action: 'curso/update' },
+  'GET /curso/delete/:cursoId':   { action: 'curso/delete' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
@@ -62,5 +69,4 @@ module.exports.routes = {
   'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email' },
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
-
 };
