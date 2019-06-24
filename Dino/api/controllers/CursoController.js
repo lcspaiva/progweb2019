@@ -48,14 +48,22 @@ module.exports = {
 
 
     delete: async function(req, res){
-        try {
+        if (req.route.methods.get) {
             const curso = await Curso.find({
                 id: req.params.cursoId,
             });
             res.view('curso/delete', { curso:curso[0] });
-        } catch (error) {
-            console.log("Deu ruim aqui!")
-            console.log(error)
+        } else {
+            try {
+                await Curso.create({
+                    sigla: req.body.sigla,
+                    nome: req.body.nome,
+                    descricao: req.body.descricao,
+                })
+                res.redirect('/curso');
+            } catch (error) {
+                res.view('curso/create', { error: error });
+            }
         }
      },
 };
