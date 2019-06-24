@@ -27,8 +27,12 @@
             <% } %>
             <hr>
             //form post action delete
-            <button type="button" class="btn btn-danger">Excluir</button>
-            <a class="btn btn-primary" href="/curso" role="button">Voltar</a>
+            <h2 style="color: red"> Atenção, "o que foi feito não pode ser desfeito" Zedão</h2>
+            <form action="/curso/delete/<%= curso.id %>" method="POST">
+              <input type="hidden" name="_csrf" value="<%= _csrf%>">
+              <button class="btn btn-danger" type="submit">Excluir</button>
+            </form>
+            <a class="btn btn-primary" href="/curso" role="button">Cancelar</a>
         </div>
     </div>
   </div>
