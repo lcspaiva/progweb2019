@@ -43,6 +43,9 @@ module.exports.routes = {
   'GET /curso/delete/:cursoId':   { action: 'curso/delete' },
   'POST /curso/delete/:cursoId':  { action: 'curso/delete' },
 
+
+  'GET /account/curso':           { action: 'account/selecionar-curso' },
+  'POST /account/curso':          { action: 'account/selecionar-curso' },
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝

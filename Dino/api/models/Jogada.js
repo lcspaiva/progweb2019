@@ -26,6 +26,11 @@ module.exports = {
         maxLength: 45,
         description: "Data em que o jogador realizou a pontuação"
       },
+
+      //a jogada só pode pertencer a um usuario
+      jogador:{
+        model: 'User'
+      },
   
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

@@ -30,7 +30,13 @@ module.exports = {
       descricao: {
         type: "string",
         columnType: "text"
-      }
+      },
+
+      alunos: {
+        collection: 'User',
+        via: 'curso',
+      },
+
   
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

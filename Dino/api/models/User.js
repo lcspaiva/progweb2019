@@ -32,6 +32,17 @@ module.exports = {
       protect: true,
     },
 
+    //um usr pode ter varias jogadas, mas uma jogada só pde ter um usr
+    jogadas:{
+      collection: 'Jogada',
+      via: 'jogador',
+    },
+
+    //um usr só pode ter um curso, mas um curso pode ter varios alunos
+    curso:{
+      model: 'Curso',
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
