@@ -1,0 +1,54 @@
+<div id="curso" class="container mt-4">
+    <div class="row">
+        <div class="col-sm">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/account">Minha Conta</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Selecionar Curso</li>
+            </ol>
+        </nav>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h1>Selecionar Curso</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <% if(typeof error !== 'undefined') { %>
+                <p><%= error %></p>
+            <% } else {%>
+                <p>Por favor, selecione seu curso na Ufam</p> 
+                <!-- criando um formulário para usar o post com o controlador -->
+                <form action="/account/curso" method="POST">
+                    <div class="form-group">
+                        <!-- esse é o nome que deve ser acessado de volta no controlador -->
+                        <!-- FAZENDO IGUAL AO PROFESSOR !! -->
+                        <select name="seleciona_curso" id="input1" class="form-control">
+                            <% if (curso_user != undefined) { %>
+                                <option selected value="<%= curso_user.id %>"><%= curso_user.nome %></option>
+                                <% cursos.forEach(function(c) { %>
+                                    <% if (c.nome != curso_user.nome) { %>
+                                        <option value="<%= c.id %>"><%= c.nome %></option>
+                                    <% } %>
+                                <% }) %>
+                            <% } else { %>
+                                <option selected>Sem Curso</option>
+                                <% cursos.forEach(function(c) { %>
+                                        <option value="<%= c.id %>"><%= c.nome %></option>
+                                <% }) %>
+                            <% } %>
+                        </select>
+                    </div>
+                    <a href="/account" class="btn btn-outline-info ml-2">Cancelar</a>
+                    <input type="hidden" name="_csrf" value="<%= _csrf%>">
+                    <button type="submit" class="btn btn-dark">Salvar</button>
+                </form>
+            <% } %>
+        </div>
+    </div>
+    </hr>
+</div>
