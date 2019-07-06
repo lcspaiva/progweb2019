@@ -23,7 +23,10 @@ module.exports = {
         var jogadas = await Jogada.find(
             { where: { pontuacao: { '>=': 0 } }, sort: 'pontuacao DESC' }
         )
-        res.view('game/ranking', jogadas);
+        var jogadores = await User.find()
+        console.log(jogadas)
+        console.log(jogadores)
+        res.view('game/ranking', {jogadas: jogadas, jogadores: jogadores});
     },
 };
 

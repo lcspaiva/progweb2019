@@ -24,10 +24,24 @@
                 <th scope="col">Data/Hora</th>
               </tr>
             </thead>
+            <!-- Para cada campo da jogada vamos pesquisar o id do jogador na lista de jogadores, quando encontrarmos
+              vamos mostrar o nome associado a esse id -->
+            <!-- Esquema para encontrar: ao encontrar o jogador uma flag é ativada, caso essa flag permaneça inalterada
+              percebemos que ele não encontrou o jogador, logo imprimiremos que ele foi deletado (testado OK)-->
             <tbody>
               <% jogadas.forEach(function(jogada) { %>
+                <% var flag %>
               <tr>
-                <th scope="row"><%= jogada.jogador %></th>
+                <% flag = 0 %>
+                <% jogadores.forEach(function(jogador) { %>
+                  <% if(jogador.id == jogada.jogador) { %>
+                    <% flag = 1 %>
+                    <th scope="row"><%= jogador.fullName %></th>
+                  <% } %>
+                <% }) %>
+                <% if (flag == 0) { %>
+                    <th scope="row">Deletado</td>
+                <% } %>  
                 <td><%= jogada.pontuacao %></td>
                 <td><%= jogada.data %></td>
               </tr>
