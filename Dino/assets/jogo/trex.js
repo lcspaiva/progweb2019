@@ -19,31 +19,27 @@
     var velocidade = 1
     var placar
     
-
-    //faz o jogo começar somente quando o cara apertar /\
-    if (cont == 0){
+    function init () {
         deserto = new Deserto();
         dino = new Dino();
         placar = new Score();
-        cont ++;
-    }
-    window.addEventListener("keydown", function(ev){    
-        if(ev.key == "ArrowUp" && cont <= 1){
-            init();
-        }
-        cont ++;
-    })
-
-    function init () {
+        
         ptero1 = new Ptero();
-        ptero1.element.style.right = "520px"
+        ptero1.element.style.right = "700px"
         
         cacto1 = new Cacto("cactoSoloMini");
-        cacto1.element.style.right = "500px"
+        cacto1.element.style.right = "700px"
+        
         cacto2 = new Cacto("cactoSoloMini");
-        cacto2.element.style.right = "500px"
-        gameLoop = setInterval(run, 1000/FPS);
+        cacto2.element.style.right = "700px"
+        //gameLoop = setInterval(run, 1000/FPS);
     }
+
+    document.getElementById("iniciar").addEventListener('click', function (u) {
+        dino.status = 0;
+        gameLoop = setInterval(run, 1000/FPS);
+    }, {once : true});
+
 
     //eventos para jogar
     window.addEventListener("keydown", function (e) {
@@ -177,6 +173,11 @@
 
             clearInterval(gameLoop);
             gameOver()
+            document.getElementById("gg").addEventListener('click', function(e){
+                location.reload();
+            });
+            //document.getElementById("iniciar").addEventListener('click', function (u)
+            
         }
     }
 
@@ -185,9 +186,35 @@
         this.element.className = "fim";
         deserto.element.appendChild(this.element)
 
-        this.element= document.createElement("div")
-        this.element.className = "botao"
+        this.element = document.createElement("div")
+        this.element.className = "botao";
+        this.element.id = "gg";
         deserto.element.appendChild(this.element)
+
+        var d = (new Date()).toString().split(' ')
+        //var dia = d[2] + " " + d[1] + " " + d[3];
+
+        var today = new Date();
+        var dia = today.getDate();
+        var mes = today.getMonth()+1; //January is 0!
+        var ano = today.getFullYear();
+
+        dia = dia + "/" + mes + "/" + ano
+
+        var hora = d[4];
+        var timestamp = dia + " " + hora
+        console.log(timestamp)
+        $.ajax({
+            url: '/pontuacao',
+            type: 'POST',
+            data: {
+                'pontuacao': pontos,
+                'time': timestamp,
+                '_csrf': document.getElementById('_csrf').value,
+            },
+            error: function (xhr, status, error) {},
+            success: function (data) {}
+            });
     }
 
     function Nuvem () {
@@ -199,7 +226,12 @@
     }
 
     Nuvem.prototype.mover = function () {
-        this.element.style.right = (parseInt(this.element.style.right) + velocidade) + "px";
+        if (parseInt(this.element.style.right) > 700){
+            ;
+        }
+        else{
+            this.element.style.right = (parseInt(this.element.style.right) + velocidade) + "px";
+        }
     }
 
     function Ptero(){
@@ -219,7 +251,7 @@
     }
 
     Ptero.prototype.voar = function(){
-        if (this.element.style.right > 515){
+        if (parseInt(this.element.style.right) > 700){
             ;
         }
         else{
@@ -246,7 +278,11 @@
     }
 
     Cacto.prototype.mover = function () {
-        this.element.style.right = (parseInt(this.element.style.right) + velocidade) + "px";
+        if(parseInt(this.element.style.right) >= 700){
+            ;
+        }else{
+            this.element.style.right = (parseInt(this.element.style.right) + velocidade) + "px";
+        }
     }
 
     altura = ["80px", "40px", "10px", "80px", "40px", "10px", "80px", "40px", "10px", "80px"]
@@ -275,20 +311,16 @@
         }
     }
 
-    function colisao(rect1, rect2, tp){
-        //hitbox do elemento A (sempre será o dino)
-        quadA = rect1.element.getBoundingClientRect()
-        //hitbox do elemento B (serao os elementos que existem no deserto e indicam gameover)
-        quadB = rect2.element.getBoundingClientRect()
-        var colidiu
+    function colisao(dino, objeto, tp){
+        A = dino.element.getBoundingClientRect()
+        B = objeto.element.getBoundingClientRect()
+        //corrigido bug que fazia com que os elementos colidissem mesmo após terem se distanciado
+        //foi adicionado mais um e
         if (tp == 1){
-            //caso as hitbox se encontrem nos detectamos uma colisao
-            colidiu = (quadA.top <= quadB.bottom && quadA.bottom >= quadB.top) && quadA.right >= quadB.left && quadB.left > 0
+            return ((A.top <= B.bottom && A.bottom >= B.top) && A.right >= B.left && B.left > 0) && A.left < B.right;
         }else if (tp == 2){
-            //ainda passa por dentro
-            colidiu = (quadA.right >= quadB.left && quadA.bottom >= quadB.top && quadB.left > 0 && quadB.top <= quadA.bottom)
+            return (A.right >= B.left && A.bottom >= B.top && B.left > 0 && A.left < B.right);
         }
-        return colidiu
     }
 
     function mudaDia() {
@@ -309,17 +341,24 @@
         if (Math.floor(Math.random()*6500) <= PROB_NUVEM) { //cria nuvem
             nuvens.push(new Nuvem());
         }
-
+        
         //teremos no máximo 2 ptros ao mesmo tempo na tela
-        if(Math.floor(Math.random()*3000) <= PROB_PTRO){
+        if(Math.floor(Math.random()*1000) <= PROB_PTRO){
             //console.log("qro criar ptro!")
             //se a posição do ptro for maior que 500 ele está apto a voltar ao deserto
-            if (parseInt(ptero1.element.style.right) > 500){
+            var dist1 = parseInt(cacto1.element.style.right)
+            var dist2 = parseInt(cacto2.element.style.right)
+            if (dist1 < 100 || dist2 < 100){
+                console.log("mt perto pra criar")
+            }else if (parseInt(ptero1.element.style.right) >= 700){
                 ptero1 = new Ptero()
+                //console.log("Criei um ptero")
             }
         }
-        if (Math.floor(Math.random()*10000) <= PROB_NUVEM) { //cria nuvem
+        
+        if (Math.floor(Math.random()*1000) <= PROB_NUVEM) { //cria nuvem
             nuvens.push(new Nuvem());
+            //console.log("criei uma nuvem")
         }
         nuvens.forEach(function (n) {
             n.mover(); //480 é o fim do grid visualmente, max=500px
@@ -328,19 +367,21 @@
         if(Math.floor(Math.random()*1000) <= PROB_CACTO){
             var dist1 = parseInt(cacto1.element.style.right)
             var dist2 = parseInt(cacto2.element.style.right)
-
-            if (dist1 < 75 || dist2 < 75){
-                ;
+            if (dist1 < 200 || dist2 < 200){
+                console.log("mt perto pro cacto")
             }
             else{
-                if(parseInt(cacto1.element.style.right) > 500){
+                if(parseInt(cacto1.element.style.right) >= 700){
                     cacto1 = new Cacto(tipoCacto[Math.floor(Math.random()*10)])
+                    //console.log("Criei um cacto")
                 }
-                else if (parseInt(cacto2.element.style.right) > 500){
+                else if (parseInt(cacto2.element.style.right) >= 700){
                     cacto2 = new Cacto(tipoCacto[Math.floor(Math.random()*10)])
+                    //console.log("Criei um cacto")
                 }
             }
         }
+    
         ptero1.voar()
         cacto1.mover()
         cacto2.mover()
@@ -362,17 +403,22 @@
 
         let pontuação = formataPonto(pontos);
         placar.aumentar(pontuação)
-        console.log(pontos)
+        //console.log(pontos)
 
+        
         if (colisao(dino, ptero1, 1)){
             dino.status = 4
+            console.log("colisão com ptero")
         }
         if (colisao(dino, cacto1, 2)){
             dino.status = 4
+            console.log("colisão com cacto1")
         }
         if (colisao(dino, cacto2, 2)){
             dino.status = 4
+            console.log("colisão com cacto2")
         }
         
     }
+    init();
 })();

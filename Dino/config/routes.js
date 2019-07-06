@@ -14,6 +14,8 @@ module.exports.routes = {
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /':                   { action: 'game/trex' },
+  'POST /pontuacao':         { action: 'game/pontuacao' },
+  'GET /ranking':            { action: 'game/ranking' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /sobre':              { action:   'view-sobre'},

@@ -1,0 +1,38 @@
+<div id="curso" class="container mt-4">
+    <div class="row">
+      <div class="col-sm">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Jogo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Ranking</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <h1>Ranking dos Jogadores</h1>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Jogador</th>
+                <th scope="col">Pontuação</th>
+                <th scope="col">Data/Hora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% jogadas.forEach(function(jogada) { %>
+              <tr>
+                <th scope="row"><%= jogada.jogador %></th>
+                <td><%= jogada.pontuacao %></td>
+                <td><%= jogada.data %></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
