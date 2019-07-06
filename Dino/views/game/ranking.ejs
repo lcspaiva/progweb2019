@@ -28,6 +28,8 @@
               vamos mostrar o nome associado a esse id -->
             <!-- Esquema para encontrar: ao encontrar o jogador uma flag é ativada, caso essa flag permaneça inalterada
               percebemos que ele não encontrou o jogador, logo imprimiremos que ele foi deletado (testado OK)-->
+            <!-- Problema: se um novo usuario for criado com o mesmo id ele irá  pegar a pontuação do cara que foi deletado
+            e que tinha esse id antes :/ -->
             <tbody>
               <% jogadas.forEach(function(jogada) { %>
                 <% var flag %>
