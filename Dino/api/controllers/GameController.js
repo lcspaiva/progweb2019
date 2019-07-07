@@ -6,10 +6,12 @@
  */
 
 module.exports = {
+    //chama o jogo
     trex: async function (req, res) {
         res.view('game/trex');
         },
-
+    
+    //cria uma entrada no banco na tabela de pontuações
     pontuacao: async function (req, res) {
         await Jogada.create({
             pontuacao: req.body.pontuacao,
@@ -19,6 +21,10 @@ module.exports = {
         res.end('Pontuação salva');
     },
 
+
+    // colocando o controlador do ranking dentro do mesmo controlador por preguiça de ter que criar outro arquivo
+    // se funcionou é pq tá certo
+    //lista a tabela de pontos
     ranking: async function (req, res) {
         var jogadas = await Jogada.find(
             { where: { pontuacao: { '>=': 0 } }, sort: 'pontuacao DESC' }

@@ -27,6 +27,7 @@
             <% } %>
             <hr>
             //form post action delete
+            <!-- enviando para o controlador -->
             <h2 style="color: red"> Atenção, "o que foi feito não pode ser desfeito" Zedão</h2>
             <form action="/curso/delete/<%= curso.id %>" method="POST">
               <input type="hidden" name="_csrf" value="<%= _csrf%>">
